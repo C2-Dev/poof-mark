@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:12-alpine
+    container_name: poof-postgres
+  web:
+    image: poof-back
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./poof-back:/poof/poof-back
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    container_name: poof-back
+
+volumes:
+  poof-postgres:

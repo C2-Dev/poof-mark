@@ -1,0 +1,7 @@
+Django
+djangorestframework
+psycopg2>=2.7,<3.0
+gunicorn
+django-cors-headers
+djangorestframework_simplejwt
+djangorestframework-camel-case
