@@ -15,6 +15,5 @@ ${DOCKERBIN} volume rm poof-postgres
 
 echo "=== Rebuilding poof/back"
 ${DOCKERBIN} rmi poof-mark_web poof-back
-#cd ${CUR_DIR}/poof-back
 ${DOCKERBIN} build --no-cache -t poof-back .
 cd ${CUR_DIR}
