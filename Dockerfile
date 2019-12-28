@@ -6,7 +6,7 @@ RUN mkdir -p /poof/poof-back
 WORKDIR /poof/poof-back
 COPY . /poof/poof-back
 RUN apk update \
-    && apk add --no-cache --virtual .build-deps postgresql postgresql-dev gcc python3-dev git curl wget vim musl-dev libffi-dev openssl-dev libxml2-dev zlib-dev libxslt-dev \
+    && apk add --no-cache --virtual .build-deps postgresql postgresql-dev gcc python3-dev git curl wget vim musl-dev libffi-dev openssl-dev libxml2-dev zlib-dev libxslt-dev jpeg-dev \
     && rm -rf /poof/poof-back.git \
     && find /poof/poof-back -type f -iname '.*' -exec chmod -x {} \; \
     && find /poof/poof-back -type f -iname '*.py' -exec chmod -x {} \; \
