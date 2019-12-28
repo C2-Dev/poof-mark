@@ -12,8 +12,8 @@ class Profile(models.Model):
     status = models.TextField(max_length=100, blank=True,
                               default='The more you poof the better you feel')
     birth_date = models.DateField(null=True, blank=True)
-    avatar = models.ImageField(upload_to='media/avatars/', blank=True,
-                               default='media/avatars/default_avatar.png')
+    avatar = models.ImageField(upload_to='avatars/', blank=True,
+                               default='avatars/default_avatar.png')
 
     def __str__(self):
         return str(self.user.username)
