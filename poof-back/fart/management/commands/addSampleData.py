@@ -63,7 +63,7 @@ class Command(BaseCommand):
                 self.farts[fart] = FartType.objects.get(name=fart)
                 self.logger.info("{} fart type already exists! Come up with a new one.".format(fart))
             except:
-                FartType.objects.create(name=fart)
+                FartType.objects.get_or_create(name=fart)
                 self.logger.info("{} fart type added.".format(fart))
 
         
