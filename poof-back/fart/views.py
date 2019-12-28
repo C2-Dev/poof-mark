@@ -1,14 +1,22 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User, Group
-from fart.models import Fart, FartType
+from fart.models import Fart, FartType, Profile
 from rest_framework import viewsets
-from fart.serializers import UserSerializer, GroupSerializer, FartSerializer, TypeSerializer
+from fart.serializers import UserSerializer, GroupSerializer, FartSerializer, TypeSerializer, ProfileSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
 
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
+
+
+class ProfileViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
 
 
 class GroupViewSet(viewsets.ModelViewSet):

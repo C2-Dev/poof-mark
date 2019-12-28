@@ -1,17 +1,45 @@
 from django.db import models
-
 import datetime
 from django.utils import timezone
-from django.db import models
 from django.contrib.auth.models import User, Group
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, related_name='profile', on_delete=models.CASCADE)
+    status = models.TextField(max_length=100, blank=True,
+                              default='The more you poof the better you feel')
+    birth_date = models.DateField(null=True, blank=True)
+    avatar = models.ImageField(upload_to='media/avatars/', blank=True,
+                               default='media/avatars/default_avatar.png')
+
+    def __str__(self):
+        return str(self.user.username)
+
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    """Creates a profile when user is created."""
+
+    if created:
+        Profile.objects.create(user=instance)
+
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    """Saves profile info when user is updated."""
+
+    instance.profile.save()
 
 
 class FartType(models.Model):
-        name = models.CharField(max_length=32)
+    name = models.CharField(max_length=32)
 
-        def __str__(self):
-                return self.name
+    def __str__(self):
+        return self.name
+
 
 class Fart(models.Model):
     user = models.ForeignKey(User, related_name='fart', on_delete=models.CASCADE)
@@ -27,4 +55,3 @@ class Fart(models.Model):
 
     def __str__(self):
         return str(self.id)
-
