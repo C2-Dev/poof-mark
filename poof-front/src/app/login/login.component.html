@@ -1,1 +1,17 @@
-<p>login works!</p>
+<body style="margin: 20px;">
+    <form [formGroup]="loginForm">
+      <label>
+        Username:
+        <input type="text" formControlName="username"><br>
+      </label>
+      <label>
+        Password
+        <input type="password" formControlName="password">
+      </label>
+        <br><button (click)="loginUser()">Submit</button>
+    </form>
+    <br>
+    <textarea>{{ this.auth.token.access }}</textarea><br>
+    <textarea>{{ this.auth.token.refresh }}</textarea>
+
+</body>

@@ -10,7 +10,7 @@ class Command(BaseCommand):
     
     logger = logging.getLogger('poof.addSampleData')
     email_domain = 'fartmark.com'
-    default_pw = 'trailBoss4Life'
+    default_pw = 'test1234'
     users = {}
     usernames = ['hughjanus', 'z3ke1r', 'tmart', 'admin']
     farts = {}
