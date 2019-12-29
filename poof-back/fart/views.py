@@ -29,13 +29,13 @@ class GroupViewSet(viewsets.ModelViewSet):
     serializer_class = GroupSerializer
 
 
-
 class FartViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows farts to be viewed or edited.
     """
     queryset = Fart.objects.all()
     serializer_class = FartSerializer
+
 
 class TypeViewSet(viewsets.ModelViewSet):
     """
