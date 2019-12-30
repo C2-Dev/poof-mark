@@ -20,21 +20,21 @@ export function tokenGetter() {
     FartComponent,
     LoginComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    JwtModule.forRoot({
-      config: {
-        tokenGetter,
-        whitelistedDomains: ['localhost:8000'],
-        blacklistedRoutes: []
-      }
-    }),
-    BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        JwtModule.forRoot({
+            config: {
+                tokenGetter,
+                whitelistedDomains: ['localhost:8000'],
+                blacklistedRoutes: []
+            }
+        }),
+        BrowserAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
