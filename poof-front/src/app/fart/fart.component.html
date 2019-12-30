@@ -1,1 +1,13 @@
-<p>fart works!</p>
+<div style="margin: 20px;">
+  <h2>Master Fart List:</h2>
+
+  <div *ngIf="farts; else elseBlock">
+    <button (click)="clearFarts()">Clear farts</button>
+  </div>
+  <ng-template #elseBlock>
+    <button (click)="getFarts()">Fetch farts</button>
+  </ng-template>
+  <ul *ngFor="let fart of farts">
+    <li>{{ fart.ftype }}</li>
+  </ul>
+</div>

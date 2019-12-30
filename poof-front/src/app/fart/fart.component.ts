@@ -24,10 +24,13 @@ export class FartComponent implements OnInit {
           this.farts = farts;
           console.log('Fetched farts!');
         }
-      )
+      );
+  }
+
+  clearFarts(): void {
+    this.farts = [];
   }
 
   ngOnInit() {
-    this.getFarts();
   }
 }

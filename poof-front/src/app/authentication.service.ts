@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
-import { JwtToken, LoginCredentials } from './auth';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {JwtToken, LoginCredentials} from './auth';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Router} from '@angular/router';
+import {environment} from 'src/environments/environment';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 import {JwtHelperService} from '@auth0/angular-jwt';
 
 @Injectable({
@@ -29,12 +29,7 @@ export class AuthenticationService {
     const loginData = new LoginCredentials();
     loginData.username = username;
     loginData.password = password;
-    this.getNewToken(loginData);
-  }
-
-  getNewToken(loginData: LoginCredentials): void {
-    this.http.post<JwtToken>(environment.apiUrl + '/token/', loginData).
-    subscribe(
+    this.getNewToken(loginData).subscribe(
       token => {
         this.token = token;
         localStorage.setItem('access_token', token.access);
@@ -43,11 +38,36 @@ export class AuthenticationService {
       });
   }
 
+  getNewToken(loginData: LoginCredentials): Observable<any> {
+    return this.http.post<JwtToken>(environment.apiUrl + '/token/', loginData);
+  }
+
+  refreshToken(): void {
+    const body = {refresh: this.getRefreshToken()};
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+
+    this.http.post<any>(environment.apiUrl + '/refresh/', body, httpOptions)
+      .subscribe(accessToken => {
+          this.token.access = accessToken.access;
+          localStorage.setItem('access_token', accessToken.access);
+          console.log('token refreshed');
+        }
+      );
+  }
+
   isValid(): boolean {
-    return this.helper.isTokenExpired(this.getCurrToken());
+    return !this.helper.isTokenExpired(this.getCurrToken());
   }
 
   getCurrToken(): string {
     return this.token.access;
+  }
+
+  getRefreshToken(): string {
+    return this.token.refresh;
   }
 }
