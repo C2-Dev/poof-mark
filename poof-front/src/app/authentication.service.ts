@@ -6,6 +6,7 @@ import {environment} from 'src/environments/environment';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {JwtHelperService} from '@auth0/angular-jwt';
+import {nullSafeIsEquivalent} from "@angular/compiler/src/output/output_ast";
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +37,11 @@ export class AuthenticationService {
         localStorage.setItem('refresh_token', token.refresh);
         console.log('Got the token fart face!');
       });
+  }
+
+  logout(): void {
+    localStorage.setItem('access_token', null);
+    localStorage.setItem('refresh_token', null);
   }
 
   getNewToken(loginData: LoginCredentials): Observable<any> {

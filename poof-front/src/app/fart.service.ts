@@ -9,9 +9,6 @@ import { environment } from 'src/environments/environment';
 })
 export class FartService {
 
-  farts: Fart[];
-  fartTypes: FartType[];
-
   getFarts(): Observable<Fart[]> {
     return this.http.get<Fart[]>(environment.apiUrl + '/farts/');
   }

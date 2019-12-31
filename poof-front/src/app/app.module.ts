@@ -8,14 +8,19 @@ import { AppComponent } from './app.component';
 import { FartComponent } from './fart/fart.component';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {FlexLayoutModule} from '@angular/flex-layout';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { MatSidenavModule,
-         MatToolbarModule,
-         MatIconModule,
-         MatListModule,
-         MatButtonModule,
-         MatMenuModule
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatSidenavModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatListModule,
+        MatButtonModule,
+        MatMenuModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatTabsModule,
+        MatInputModule,
+        MatDatepickerModule
         } from '@angular/material';
 
 export function tokenGetter() {
@@ -49,7 +54,12 @@ export function tokenGetter() {
     MatIconModule,
     MatListModule,
     MatButtonModule,
-    MatMenuModule
+    MatMenuModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatTabsModule,
+    MatInputModule,
+    MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

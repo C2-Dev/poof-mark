@@ -2,10 +2,10 @@
   <h2>Master Fart List:</h2>
 
   <div *ngIf="farts; else elseBlock">
-    <button (click)="clearFarts()">Clear farts</button>
+    <button (click)="clearFarts()">Clear fart types</button>
   </div>
   <ng-template #elseBlock>
-    <button (click)="getFarts()">Fetch farts</button>
+    <button (click)="getFarts()">Fetch fart types</button>
   </ng-template>
   <ul *ngFor="let fart of farts">
     <li>{{ fart.ftype }}</li>
