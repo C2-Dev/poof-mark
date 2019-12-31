@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FartService } from '../fart.service';
-import { Fart } from '../fart';
+import {Fart, FartType} from '../fart';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -16,6 +16,7 @@ export class FartComponent implements OnInit {
   ) { }
 
   farts: Fart[];
+  fart_types: FartType[];
 
   getFarts(): void {
     this.fartService.getFarts().
@@ -27,8 +28,24 @@ export class FartComponent implements OnInit {
       );
   }
 
+
   clearFarts(): void {
     this.farts = [];
+  }
+
+  getFartTypes(): void {
+    this.fartService.getFartTypes().
+      subscribe(
+        fart_types => {
+          this.fart_types = fart_types;
+          console.log('Fetched fart types!');
+        }
+      );
+  }
+
+
+  clearFartTypes(): void {
+    this.fart_types = [];
   }
 
   ngOnInit() {
