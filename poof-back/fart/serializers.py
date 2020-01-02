@@ -3,22 +3,27 @@ from fart.models import Fart, FartType, Profile
 from rest_framework import serializers
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
-    status = serializers.ReadOnlyField(source='profile.status')
-    birth_date = serializers.ReadOnlyField(source='profile.birth_date')
-    avatar = serializers.ImageField(source='profile.avatar')
-
-    class Meta:
-        model = User
-        fields = ['url', 'username', 'email', 'groups', 'status', 'birth_date', 'avatar']
-
-
 class ProfileSerializer(serializers.HyperlinkedModelSerializer):
     username = serializers.ReadOnlyField(source='user.username')
 
     class Meta:
         model = Profile
         fields = ['url', 'username', 'status', 'birth_date', 'avatar']
+
+
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    profile = ProfileSerializer()
+
+    class Meta:
+        model = User
+        fields = ['url', 'username', 'email', 'groups', 'profile']
+
+    def create(self, validated_data):
+        profile_data = validated_data.pop('profile')
+        user = User.objects.create(**validated_data)
+        for data in profile_data:
+            Profile.objects.create(user=user, **profile_data)
+        return user
 
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
