@@ -6,6 +6,7 @@ from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnl
 from fart.serializers import UserSerializer, GroupSerializer, FartSerializer, TypeSerializer, ProfileSerializer
 from fart.permissions import IsOwnerOrReadOnly
 
+
 class UserViewSet(viewsets.ModelViewSet):
 
     queryset = User.objects.all().order_by('-date_joined')

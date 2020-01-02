@@ -12,18 +12,11 @@ class ProfileSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
-    profile = ProfileSerializer()
+    profile = ProfileSerializer(read_only=True)
 
     class Meta:
         model = User
         fields = ['url', 'username', 'email', 'groups', 'profile']
-
-    def create(self, validated_data):
-        profile_data = validated_data.pop('profile')
-        user = User.objects.create(**validated_data)
-        for data in profile_data:
-            Profile.objects.create(user=user, **profile_data)
-        return user
 
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
