@@ -6,7 +6,8 @@ import {environment} from 'src/environments/environment';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {JwtHelperService} from '@auth0/angular-jwt';
-import {nullSafeIsEquivalent} from "@angular/compiler/src/output/output_ast";
+import {error} from 'util';
+import {nullSafeIsEquivalent} from '@angular/compiler/src/output/output_ast';
 
 @Injectable({
   providedIn: 'root'
@@ -26,11 +27,12 @@ export class AuthenticationService {
     this.token.refresh = localStorage.getItem('refresh_token');
   }
 
-  login(username: string, password: string): void {
+  async login(username: string, password: string): Promise<any> {
     const loginData = new LoginCredentials();
     loginData.username = username;
     loginData.password = password;
-    this.getNewToken(loginData).subscribe(
+
+    await this.getNewToken(loginData).subscribe(
       token => {
         this.token = token;
         localStorage.setItem('access_token', token.access);
@@ -63,6 +65,12 @@ export class AuthenticationService {
           console.log('token refreshed');
         }
       );
+  }
+
+  tokenExpiration(): number {
+    const date: any = this.helper.getTokenExpirationDate(this.token.access);
+    const now: any = Date.now();
+    return ((date - now) / 1000);
   }
 
   isValid(): boolean {

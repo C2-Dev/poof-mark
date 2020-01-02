@@ -28,12 +28,15 @@ export class LoginComponent implements OnInit {
     const loginData = new LoginCredentials();
     loginData.username = this.loginForm.value.username;
     loginData.password = this.loginForm.value.password;
-    this.auth.login(loginData.username, loginData.password);
+    this.auth.login(loginData.username, loginData.password).then()
+      .catch(errors => console.log('Failure due to' + JSON.stringify(errors)));
 
     if (this.auth.isValid()) {
-      this.errorMessage = 'token valid';
+      console.log('Valid token');
+      this.errorMessage = 'Valid token';
     } else {
-      this.errorMessage = 'token invalid';
+      this.errorMessage = 'Invalid token';
+      console.log('Invalid token');
     }
   }
 
