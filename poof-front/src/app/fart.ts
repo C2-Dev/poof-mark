@@ -1,7 +1,8 @@
 
 export class
 Fart {
-    user: string;
+    username: string;
+    avatar: string;
     city: string;
     state: string;
     score: number;
@@ -11,9 +12,4 @@ Fart {
     exposures: number;
     date_farted: Date;
     date_entered: Date;
-}
-
-export class 
-FartType {
-    name: string;
 }
