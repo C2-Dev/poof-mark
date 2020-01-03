@@ -12,8 +12,3 @@ Fart {
     date_farted: Date;
     date_entered: Date;
 }
-
-export class 
-FartType {
-    name: string;
-}

@@ -27,12 +27,12 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class FartSerializer(serializers.HyperlinkedModelSerializer):
-    username = serializers.ReadOnlyField(source='user.username')
+    user = UserSerializer(read_only=True)
     ftype = serializers.ReadOnlyField(source='ftype.name')
 
     class Meta:
         model = Fart
-        fields = ['url', 'username', 'score', 'ftype', 'smell_scale', 'noise_scale', 'city', 'date_farted']
+        fields = ['url', 'score', 'ftype', 'smell_scale', 'noise_scale', 'city', 'date_farted', 'user']
 
 
 class TypeSerializer(serializers.HyperlinkedModelSerializer):

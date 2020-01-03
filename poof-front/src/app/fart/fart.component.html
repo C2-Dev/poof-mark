@@ -1,13 +1,11 @@
-<div style="margin: 20px;">
-  <h2>Master Fart List:</h2>
+<mat-list *ngIf="farts; else elseBlock">
+  <mat-list-item *ngFor="let fart of farts">
+    <img matListAvatar src="{{fart.user.profile.avatar}}" alt="profile avatar">
+    <h3 matLine> {{fart.user.username}} </h3>
+    <p matLine>
+      <span> {{fart.ftype}} </span>
+      <span class="list-item-span"> -- {{fart.score}} points -- {{fart.date_farted | date}}</span>
+    </p>
+  </mat-list-item>
+</mat-list>
 
-  <div *ngIf="farts; else elseBlock">
-    <button (click)="clearFarts()">Clear fart types</button>
-  </div>
-  <ng-template #elseBlock>
-    <button (click)="getFarts()">Fetch fart types</button>
-  </ng-template>
-  <ul *ngFor="let fart of farts">
-    <li>{{ fart.ftype }}</li>
-  </ul>
-</div>

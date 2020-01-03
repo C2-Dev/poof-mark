@@ -3,7 +3,8 @@ from django.urls import path, include
 from rest_framework import routers
 from fart import views
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
-
+from django.conf import settings
+from django.conf.urls.static import static
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
@@ -19,5 +20,5 @@ urlpatterns = [
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify')
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

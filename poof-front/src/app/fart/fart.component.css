@@ -1,0 +1,9 @@
+mat-list-item {
+  background: dimgray;
+  margin: 1px;
+  border-radius: 5px;
+}
+
+mat-list{
+  width: fit-content;
+}
