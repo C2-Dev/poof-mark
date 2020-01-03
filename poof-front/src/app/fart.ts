@@ -1,8 +1,7 @@
 
 export class
 Fart {
-    username: string;
-    avatar: string;
+    user: string;
     city: string;
     state: string;
     score: number;

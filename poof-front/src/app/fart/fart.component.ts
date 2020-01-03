@@ -32,5 +32,6 @@ export class FartComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getFarts()
   }
 }
