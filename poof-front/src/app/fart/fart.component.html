@@ -1,6 +1,6 @@
 <mat-list *ngIf="farts; else elseBlock">
   <mat-list-item *ngFor="let fart of farts">
-    <img matListAvatar src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="profile avatar">
+    <img matListAvatar src="{{fart.user.profile.avatar}}" alt="profile avatar">
     <h3 matLine> {{fart.user.username}} </h3>
     <p matLine>
       <span> {{fart.ftype}} </span>
