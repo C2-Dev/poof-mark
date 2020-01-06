@@ -31,7 +31,7 @@ export class MapComponent implements OnInit {
     this.locationService.getPosition().then(pos=>
     {
       this.lon = pos.lon;
-      this.lat = pos.lon;
+      this.lat = pos.lat;
       console.log(`Position: ${pos.lon} ${pos.lat}`);
     })
   }
