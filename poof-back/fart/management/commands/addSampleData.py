@@ -70,13 +70,13 @@ class Command(BaseCommand):
         for i in range(20):
             fart_params = {
                 'user': self.users[random.choice(self.usernames)],
-                'city': random.choice(['Ring Of Fire','Flavor Town','Nolubeville']),
-                'state': 'BFE',
-                'score': random.randint(0,10),
+                'score': random.randint(100,1000),
                 'ftype': self.farts[random.choice(self.fart_types)],
-                'noise_scale': random.randint(0,10),
-                'smell_scale': random.randint(0,10),
-                'exposures': random.randint(0,10000)
+                'noise_scale': random.randint(1,10),
+                'smell_scale': random.randint(1,10),
+                'exposures': random.randint(1,10000),
+                'lat' : round(random.uniform(27,50), 6),
+                'lon' : round(random.uniform(80,120), 6),
             }
 
             Fart.objects.get_or_create(**fart_params)
