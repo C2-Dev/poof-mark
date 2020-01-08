@@ -76,7 +76,7 @@ class Command(BaseCommand):
                 'smell_scale': random.randint(1,10),
                 'exposures': random.randint(1,10000),
                 'lat' : round(random.uniform(27,50), 6),
-                'lon' : round(random.uniform(80,120), 6),
+                'lon' : round(random.uniform(-80,-120), 6),
             }
 
             Fart.objects.get_or_create(**fart_params)
