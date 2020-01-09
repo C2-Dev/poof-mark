@@ -16,7 +16,8 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = User
-        fields = ['url', 'username', 'email', 'groups', 'profile']
+        fields = ['url', 'username', 'email', 'first_name', 'last_name',
+                  'groups', 'profile']
 
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
@@ -32,7 +33,8 @@ class FartSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Fart
-        fields = ['url', 'score', 'ftype', 'smell_scale', 'noise_scale', 'lat', 'lon', 'date_farted', 'user']
+        fields = ['url', 'score', 'ftype', 'smell_scale', 'noise_scale',
+                  'lat', 'lon', 'date_farted', 'user']
 
 
 class TypeSerializer(serializers.HyperlinkedModelSerializer):
