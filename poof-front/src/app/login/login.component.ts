@@ -44,5 +44,7 @@ export class LoginComponent implements OnInit {
     this.auth.logout()
   }
 
+  ngOnInit() {
+  }
 
 }
