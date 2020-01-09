@@ -32,7 +32,7 @@ class FartSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Fart
-        fields = ['url', 'score', 'ftype', 'smell_scale', 'noise_scale', 'city', 'date_farted', 'user']
+        fields = ['url', 'score', 'ftype', 'smell_scale', 'noise_scale', 'lat', 'lon', 'date_farted', 'user']
 
 
 class TypeSerializer(serializers.HyperlinkedModelSerializer):
