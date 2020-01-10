@@ -1,6 +1,3 @@
-[![NPM Version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Downloads Stats][npm-downloads]][npm-url]
 # Poof Mark
 > Poof it, Mark it, Share it!
 
@@ -9,6 +6,9 @@ Ever crop-dust a wedding :bride_with_veil: or shart at your local Arby's :hambur
 ![Screenshot](https://i.ibb.co/qFn6PJx/Image-1-10-20-at-3-11-PM.jpg)
 
 ## Release History
+
+[![Build Status][travis-image]][travis-url]
+[![Downloads Stats][npm-downloads]][npm-url]
 
 * 0.0.1
     * Work in progress
