@@ -20,7 +20,8 @@ import {MatSidenavModule,
         MatFormFieldModule,
         MatTabsModule,
         MatInputModule,
-        MatDatepickerModule
+        MatDatepickerModule,
+        MatSnackBarModule,
         } from '@angular/material';
 
 export function tokenGetter() {
@@ -59,7 +60,8 @@ export function tokenGetter() {
     MatFormFieldModule,
     MatTabsModule,
     MatInputModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

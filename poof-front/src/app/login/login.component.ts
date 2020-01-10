@@ -5,6 +5,7 @@ import { UserInfo } from "../user";
 import { UserService } from "../user.service";
 import {Router} from '@angular/router';
 import {FormControl, FormGroup} from '@angular/forms';
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-login',
@@ -31,7 +32,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private auth: AuthenticationService,
     private user: UserService,
-    private  router: Router
+    private  router: Router,
+    private snackBar: MatSnackBar
   ) {
   }
 
@@ -41,6 +43,7 @@ export class LoginComponent implements OnInit {
     loginData.password = this.loginForm.value.password;
     this.auth.login(loginData.username, loginData.password).then()
       .catch(errors => console.log('Failure due to' + JSON.stringify(errors)));
+      this.openSnackBar('Login Successful!', 'x');
 
     if (this.auth.isValid()) {
       console.log('Valid token');
@@ -65,9 +68,16 @@ export class LoginComponent implements OnInit {
 
     this.user.userForm(userData.username, userData.password, userData.email, userData.first_name, userData.last_name,).then()
       .catch(errors => console.log('Failure due to' + JSON.stringify(errors)));
-
+      this.openSnackBar('User Created Successfully!', 'x');
       console.log('Invalid');
     }
+
+    openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+      panelClass: ['snackbar']
+    });
+  }
 
   ngOnInit(): void {
   }

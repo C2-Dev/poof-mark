@@ -20,7 +20,7 @@ export class AuthenticationService {
   constructor(
     private http: HttpClient,
     private helper: JwtHelperService,
-    private router: Router
+    private router: Router,
   ) {
     this.token = new JwtToken();
     this.token.access = localStorage.getItem('access_token');
