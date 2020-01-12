@@ -1,7 +1,7 @@
 # Poof Mark
 > Poof it, Mark it, Share it!
 
-Ever crop-dust a wedding :bride_with_veil: or shart at your local Arby's :hamburger:...Wish you could get points for it?! Well wish no more! The poof-mark app allows you to keep track of your ferocious flatulance! :walking_woman::dash: Compete with friends and see who can rip the best butt burp. Has anyone ever crop-dusted on :mount_fuji: Mt. Fuji? Check the global map :earth_americas: and find out! Farting just got a lot more satisfying...if thats even possible :wink:
+Ever crop-dust a wedding :bride_with_veil: or shart at your local Arby's :hamburger:...Wish you could get points for it?! Well wish no more! The poof-mark app allows you to keep track of your ferocious flatulance! :walking_woman::dash: Compete with friends and see who can rip the best butt burp. Has anyone ever stinkered the summit of Mt.:mount_fuji:Fuji? Check the global map :earth_americas: and find out! Farting just got a lot more satisfying...if thats even possible :wink:
 
 ![Screenshot](https://i.ibb.co/qFn6PJx/Image-1-10-20-at-3-11-PM.jpg)
 
