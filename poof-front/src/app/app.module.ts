@@ -25,6 +25,7 @@ import {MatSidenavModule,
         MatDatepickerModule,
         MatSnackBarModule,
         } from '@angular/material';
+import { TabNavComponent } from './tab-nav/tab-nav.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -37,6 +38,7 @@ export function tokenGetter() {
     FartComponent,
     LoginComponent,
     MapComponent,
+    TabNavComponent,
   ],
   imports: [
     BrowserModule,
