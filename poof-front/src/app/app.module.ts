@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { FartComponent } from './fart/fart.component';
 import { MapComponent } from './map/map.component';
 import { LoginComponent } from './login/login.component';
+import { TabNavComponent } from './tab-nav/tab-nav.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -25,7 +26,6 @@ import {MatSidenavModule,
         MatDatepickerModule,
         MatSnackBarModule,
         } from '@angular/material';
-import { TabNavComponent } from './tab-nav/tab-nav.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');

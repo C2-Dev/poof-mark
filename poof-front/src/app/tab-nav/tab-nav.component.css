@@ -1,0 +1,11 @@
+.main-toolbar-icon {
+  padding: 0 14px;
+}
+
+.main-toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.f-quote {
+  font-size: 14px;
+}
