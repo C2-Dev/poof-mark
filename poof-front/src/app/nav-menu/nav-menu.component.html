@@ -1,0 +1,13 @@
+<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="menu button">
+    <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="login" routerLinkActive="active">
+    <mat-icon>vpn_key</mat-icon>
+    <span>Login</span>
+  </button>
+  <button mat-menu-item routerLink="settings" routerLinkActive="active">
+    <mat-icon>settings_applications</mat-icon>
+    <span>Settings</span>
+  </button>
+</mat-menu>
