@@ -1,5 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
+import {Fart} from "../fart";
 
 @Component({
   selector: 'app-fart-dialog',
@@ -8,12 +9,16 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
 })
 export class FartDialogComponent implements OnInit {
 
-  fart: any;
+  fart: Fart;
+  lat: number;
+  lon: number;
 
   constructor(
     private dialogRef: MatDialogRef<FartDialogComponent>,
     @Inject(MAT_DIALOG_DATA) data) {
     this.fart = data.fart;
+    this.lat = data.fart.lat;
+    this.lon = data.fart.lon;
   }
 
   ngOnInit() {

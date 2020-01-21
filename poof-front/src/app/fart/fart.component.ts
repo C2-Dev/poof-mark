@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FartService } from '../fart.service';
 import { Fart } from '../fart';
-import {MatDialog, MatDialogConfig} from "@angular/material";
 import {FartDialogComponent} from "../fart-dialog/fart-dialog.component";
+import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-fart',
@@ -14,8 +14,7 @@ export class FartComponent implements OnInit {
 
   constructor(
     public fartService: FartService,
-    private dialog: MatDialog
-  ) { }
+    private dialog: MatDialog,) { }
 
   farts: Fart[];
 
@@ -29,9 +28,8 @@ export class FartComponent implements OnInit {
       );
   }
 
-  openDialog(fart: object) {
-
-        const dialogConfig = new MatDialogConfig();
+  openDialog(fart: Fart) {
+    const dialogConfig = new MatDialogConfig();
         dialogConfig.data = {
           fart: fart,
         };
