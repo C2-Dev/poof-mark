@@ -15,6 +15,8 @@ import { LoginComponent } from './login/login.component';
 import { TabNavComponent } from './tab-nav/tab-nav.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { ToolbarNavComponent } from './toolbar-nav/toolbar-nav.component';
+import { FartDialogComponent } from './fart-dialog/fart-dialog.component';
+import { FartDialogMapComponent } from './fart-dialog-map/fart-dialog-map.component';
 
 import {MatSidenavModule,
         MatToolbarModule,
@@ -29,9 +31,6 @@ import {MatSidenavModule,
         MatDatepickerModule,
         MatSnackBarModule,
         } from '@angular/material';
-import { FartDialogComponent } from './fart-dialog/fart-dialog.component';
-import { FartDialogMapComponent } from './fart-dialog-map/fart-dialog-map.component';
-
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -82,6 +81,8 @@ export function tokenGetter() {
     MatSnackBarModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [FartDialogComponent]
+
 })
 export class AppModule { }
