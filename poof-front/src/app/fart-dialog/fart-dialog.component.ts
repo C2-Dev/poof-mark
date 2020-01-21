@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
 
 @Component({
   selector: 'app-fart-dialog',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FartDialogComponent implements OnInit {
 
-  constructor() { }
+  fart: any;
+
+  constructor(
+    private dialogRef: MatDialogRef<FartDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) data) {
+    this.fart = data.fart;
+  }
 
   ngOnInit() {
   }
