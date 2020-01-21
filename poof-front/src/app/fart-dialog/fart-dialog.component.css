@@ -1,0 +1,12 @@
+.example-card {
+  width: fit-content;
+  border: #8EECB3;
+}
+
+.header-avatar {
+  background-size: cover;
+}
+
+mat-card-content {
+  margin-top: 3%;
+}

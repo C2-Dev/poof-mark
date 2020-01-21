@@ -31,6 +31,7 @@ import {MatSidenavModule,
         MatDatepickerModule,
         MatSnackBarModule,
         } from '@angular/material';
+import {MatChipsModule} from "@angular/material/chips";
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -79,6 +80,7 @@ export function tokenGetter() {
     MatInputModule,
     MatDatepickerModule,
     MatSnackBarModule,
+    MatChipsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

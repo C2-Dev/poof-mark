@@ -1,1 +1,20 @@
-<p>fart-dialog works!</p>
+<mat-card class="detail-fart-card">
+  <mat-card-header>
+    <img mat-card-avatar class="header-avatar" src="{{fart.user.profile.avatar}}">
+    <mat-card-title>{{fart.ftype}}</mat-card-title>
+    <mat-card-subtitle>{{fart.user.username}} {{fart.date_farted | date: "MM/dd/yyy"}}</mat-card-subtitle>
+  </mat-card-header>
+  <app-map></app-map>
+  <mat-card-content>
+    <mat-chip-list class="fart-stats" matLine aria-label="fart stats">
+      <mat-chip color="accent" selected> 😷 {{fart.exposures}}</mat-chip>
+      <mat-chip color="primary" selected> 👃 {{fart.smell_scale}}</mat-chip>
+      <mat-chip color="primary" selected> 🔊 {{fart.noise_scale}}</mat-chip>
+      <mat-chip color="primary" selected> {{fart.score}} pts</mat-chip>
+    </mat-chip-list>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card>
