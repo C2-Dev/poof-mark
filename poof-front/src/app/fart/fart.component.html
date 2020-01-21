@@ -1,11 +1,13 @@
-<mat-list *ngIf="farts; else elseBlock">
+<mat-list>
   <mat-list-item *ngFor="let fart of farts">
-    <img matListAvatar src="{{fart.user.profile.avatar}}" alt="profile avatar">
-    <h3 matLine> {{fart.user.username}} </h3>
+    <div mat-list-avatar class="avatar-container">
+      <img mat-list-avatar class="avatar-image" src="{{fart.user.profile.avatar}}" alt="profile avatar">
+    </div>
+    <h4 mat-line>{{fart.ftype}}</h4>
     <p matLine>
-      <span> {{fart.ftype}} </span>
-      <span class="list-item-span"> -- {{fart.score}} points -- {{fart.date_farted | date}}</span>
+      <span style="font-size: xx-small"> {{fart.date_farted | date: "MM/dd/yyy"}} </span>
     </p>
+    <button mat-raised-button color="warn" (click)="openDialog(fart)"> {{fart.score}} </button>
   </mat-list-item>
 </mat-list>
 
