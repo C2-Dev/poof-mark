@@ -29,6 +29,8 @@ import {MatSidenavModule,
         MatDatepickerModule,
         MatSnackBarModule,
         } from '@angular/material';
+import { FartDialogComponent } from './fart-dialog/fart-dialog.component';
+import { FartDialogMapComponent } from './fart-dialog-map/fart-dialog-map.component';
 
 
 export function tokenGetter() {
@@ -45,6 +47,8 @@ export function tokenGetter() {
     TabNavComponent,
     NavMenuComponent,
     ToolbarNavComponent,
+    FartDialogComponent,
+    FartDialogMapComponent,
   ],
   imports: [
     BrowserModule,
