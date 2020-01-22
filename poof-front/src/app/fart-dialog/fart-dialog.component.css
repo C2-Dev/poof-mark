@@ -2,19 +2,10 @@ mat-card-content {
   margin-top: 3%;
 }
 
-agm-map {
-  height: 250px;
-}
-
-mat-card-footer {
-  font-size: xx-small;
-}
-
-.example-card {
-  width: fit-content;
-  border: #8EECB3;
-}
-
 .header-avatar {
   background-size: cover;
+}
+
+.fdate {
+  font-size: xx-small;
 }

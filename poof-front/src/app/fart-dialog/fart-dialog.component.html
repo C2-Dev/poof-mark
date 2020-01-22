@@ -2,13 +2,11 @@
   <mat-card-header>
     <img mat-card-avatar class="header-avatar" src="{{fart.user.profile.avatar}}">
     <mat-card-title>{{fart.ftype}}</mat-card-title>
-    <mat-card-subtitle>{{fart.user.username}}</mat-card-subtitle>
+    <mat-card-subtitle>{{fart.user.username}}<p class="fdate">{{fart.date_farted | date: "MM/dd/yyy"}}</p></mat-card-subtitle>
   </mat-card-header>
-  <agm-map [latitude]="+fart.lat" [longitude]="+fart.lon">
-    <agm-marker [latitude]=+fart.lat [longitude]=+fart.lon></agm-marker>
-  </agm-map>
+  <img src="http://maps.googleapis.com/maps/api/staticmap?&size=300x300&zoom=11&markers=icon:https://raw.githubusercontent.com/google/material-design-icons/master/image/1x_web/ic_filter_drama_black_24dp.png%7C{{fart.lat}},{{fart.lon}}&key=API_KEY_HERE">
   <mat-card-content>
-    <mat-chip-list class="fart-stats" matLine aria-label="fart stats">
+    <mat-chip-list class="fart-stats" aria-label="fart stats">
       <mat-chip color="accent" selected> 😷 {{fart.exposures}}</mat-chip>
       <mat-chip color="accent" selected> 👃 {{fart.smell_scale}}</mat-chip>
       <mat-chip color="accent" selected> 🔊 {{fart.noise_scale}}</mat-chip>
@@ -19,7 +17,4 @@
     <button mat-button>LIKE</button>
     <button mat-button>SHARE</button>
   </mat-card-actions>
-  <mat-card-footer>
-    {{fart.date_farted | date: "MM/dd/yyy"}}
-  </mat-card-footer>
 </mat-card>

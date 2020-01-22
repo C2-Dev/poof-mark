@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
+import {MAT_DIALOG_DATA, MatDialogRef, MatDialogConfig} from "@angular/material";
 import {Fart} from "../fart";
 
 @Component({
@@ -19,6 +19,7 @@ export class FartDialogComponent implements OnInit {
     this.fart = data.fart;
     this.lat = data.fart.lat;
     this.lon = data.fart.lon;
+
   }
 
   ngOnInit() {
