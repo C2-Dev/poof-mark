@@ -30,6 +30,7 @@ export class FartComponent implements OnInit {
 
   openDialog(fart: Fart) {
     const dialogConfig = new MatDialogConfig();
+        dialogConfig.panelClass = 'no-padding-fart-dialog'
         dialogConfig.data = {
           fart: fart,
         };
