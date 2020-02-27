@@ -15,6 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { TabNavComponent } from './tab-nav/tab-nav.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { ToolbarNavComponent } from './toolbar-nav/toolbar-nav.component';
+import { FartDialogComponent } from './fart-dialog/fart-dialog.component';
 
 import {MatSidenavModule,
         MatToolbarModule,
@@ -28,14 +29,14 @@ import {MatSidenavModule,
         MatInputModule,
         MatDatepickerModule,
         MatSnackBarModule,
+        MatDialogModule,
+        MatChipsModule,
         } from '@angular/material';
-
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
 }
 
-// noinspection AngularInvalidImportedOrDeclaredSymbol
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ export function tokenGetter() {
     TabNavComponent,
     NavMenuComponent,
     ToolbarNavComponent,
+    FartDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,8 +78,12 @@ export function tokenGetter() {
     MatInputModule,
     MatDatepickerModule,
     MatSnackBarModule,
+    MatDialogModule,
+    MatChipsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [FartDialogComponent],
+
 })
 export class AppModule { }
