@@ -4,6 +4,8 @@ services:
   db:
     image: postgres:12-alpine
     container_name: poof-postgres
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: "trust"
   web:
     image: poof-back
     command: python manage.py runserver 0.0.0.0:8000
