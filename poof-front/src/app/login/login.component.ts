@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
     loginData.password = this.loginForm.value.password;
     this.auth.login(loginData.username, loginData.password).then()
       .catch(errors => console.log('Failure due to' + JSON.stringify(errors)));
-      this.openSnackBar('Login Successful!', 'x');
+    this.openSnackBar('Login Successful!', 'x');
 
     if (this.auth.isValid()) {
       console.log('Valid token');
@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
   }
 
   logoutUser(): void {
-    this.auth.logout()
+    this.auth.logout();
   }
 
   createUser(): void {
