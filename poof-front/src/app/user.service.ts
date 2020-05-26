@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { UserInfo } from "./user";
-import {JwtToken } from "./auth";
+import { UserInfo } from "./models/user";
+import {JwtToken } from "./models/auth";
 import {Observable} from "rxjs";
 import {environment} from "../environments/environment";
 import {HttpClient, HttpHeaders} from '@angular/common/http';

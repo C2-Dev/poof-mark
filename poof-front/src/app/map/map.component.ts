@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LocationService } from "../location.service";
-import {Fart} from "../fart";
-import {FartService} from "../fart.service";
+import {Fart} from "../models/fart";
+import {FartService} from "../services/fart.service";
 
 @Component({
   selector: 'app-map',

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthenticationService} from '../authentication.service';
-import {LoginCredentials} from '../auth';
-import { UserInfo } from "../user";
+import { AuthenticationService } from '../authentication.service';
+import { LoginCredentials } from '../models/auth';
+import { UserInfo } from "../models/user";
 import { UserService } from "../user.service";
-import {Router} from '@angular/router';
-import {FormControl, FormGroup} from '@angular/forms';
-import {MatSnackBar} from "@angular/material/snack-bar";
+import { Router } from '@angular/router';
+import { FormControl, FormGroup } from '@angular/forms';
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-login',
@@ -32,25 +32,22 @@ export class LoginComponent implements OnInit {
   constructor(
     private auth: AuthenticationService,
     private user: UserService,
-    private  router: Router,
+    private router: Router,
     private snackBar: MatSnackBar
   ) {
   }
 
-  loginUser(): void {
-    const loginData = new LoginCredentials();
-    loginData.username = this.loginForm.value.username;
-    loginData.password = this.loginForm.value.password;
-    this.auth.login(loginData.username, loginData.password).then()
-      .catch(errors => console.log('Failure due to' + JSON.stringify(errors)));
-    this.openSnackBar('Login Successful!', 'x');
+  async loginUser() {
 
+    await this.auth.login(this.loginForm.value.username, this.loginForm.value.password);
+    console.log('test');
     if (this.auth.isValid()) {
       console.log('Valid token');
-      this.errorMessage = 'Valid token';
-    } else {
-      this.errorMessage = 'Invalid token';
+      this.openSnackBar('Success!', 'x');
+    }
+    else {
       console.log('Invalid token');
+      this.openSnackBar('Try again', 'x');
     }
   }
 
@@ -66,13 +63,13 @@ export class LoginComponent implements OnInit {
     userData.first_name = this.userForm.value.first_name;
     userData.last_name = this.userForm.value.last_name;
 
-    this.user.userForm(userData.username, userData.password, userData.email, userData.first_name, userData.last_name,).then()
+    this.user.userForm(userData.username, userData.password, userData.email, userData.first_name, userData.last_name).then()
       .catch(errors => console.log('Failure due to' + JSON.stringify(errors)));
-      this.openSnackBar('User Created Successfully!', 'x');
-      console.log('Invalid');
-    }
+    this.openSnackBar('User Created Successfully!', 'x');
+    console.log('Invalid');
+  }
 
-    openSnackBar(message: string, action: string) {
+  openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {
       duration: 2000,
       panelClass: ['snackbar']

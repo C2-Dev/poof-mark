@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef, MatDialogConfig} from "@angular/material";
-import {Fart} from "../fart";
+import {Fart} from "../models/fart";
 
 @Component({
   selector: 'app-fart-dialog',

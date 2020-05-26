@@ -6,6 +6,10 @@
     <mat-icon>vpn_key</mat-icon>
     <span>Login</span>
   </button>
+  <button mat-menu-item (click)="auth.logout()">
+    <mat-icon>check_box_outline_blank</mat-icon>
+    <span>Logout</span>
+  </button>
   <button mat-menu-item routerLink="settings" routerLinkActive="active">
     <mat-icon>settings_applications</mat-icon>
     <span>Settings</span>
